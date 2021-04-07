@@ -61,4 +61,12 @@ export class AddPage implements OnInit {
 
   }
 
+
+  deleteItem( i: number ) {
+
+    this.lista.items.splice( i, 1 );
+    this.deseosService.saveStorage();
+
+  }
+
 }

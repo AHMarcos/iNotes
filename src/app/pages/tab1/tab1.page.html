@@ -8,15 +8,12 @@
 
 <ion-content>
 
-  <ion-list>
-    <ion-item *ngFor="let lista of deseosService.listas"
-               detail>
-      <ion-label>{{ lista.titulo }}</ion-label>
-    </ion-item>
-  </ion-list>
+  <app-lists [finish]="false">
+  </app-lists>
+
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
     <ion-fab-button color="danger"
-                    (click)="addList()"  >
+                    (click)="addList()">
       <ion-icon name="add-circle-outline"></ion-icon>
     </ion-fab-button>
   </ion-fab>

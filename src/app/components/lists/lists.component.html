@@ -1,0 +1,26 @@
+<ion-list>
+
+  <ion-item-sliding *ngFor="let lista of deseosService.listas | filterFinish: finish">
+    <ion-item  detail
+               (click)="listaSeleccionada( lista )" >
+      <ion-label>{{ lista.titulo }}</ion-label>
+      <ion-chip outline color="danger">
+        <ion-label>{{ lista.items.length }} Items</ion-label>
+        <ion-icon name="pricetags-outline"></ion-icon>
+      </ion-chip>
+    </ion-item>
+
+    <ion-item-options side="start">
+      <ion-item-option (click)="editList( lista )" color="danger">
+        <ion-icon slot="icon-only" name="brush-outline"></ion-icon>
+      </ion-item-option>
+    </ion-item-options>
+
+    <ion-item-options side="end">
+      <ion-item-option (click)="deleteList( lista )" color="danger">
+        <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
+      </ion-item-option>
+    </ion-item-options>
+  </ion-item-sliding>
+
+</ion-list>

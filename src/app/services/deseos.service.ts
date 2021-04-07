@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Lista } from '../models/lista.model';
+import { ListaItem } from '../models/lista-item.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DeseosService {
 
-  public listas: Lista[] = [];
+  public listas : Lista[] = [];
 
   constructor() {
     this.loadingStorage();
@@ -24,6 +25,16 @@ export class DeseosService {
   getList( id: string | number) {
     id = Number(id);
     return this.listas.find( listaData => listaData.id === id );
+  }
+
+  deleteList( lista: Lista ) {
+
+    this.listas = this.listas.filter( listaData => {
+      return listaData.id !== lista.id;
+    });
+
+    this.saveStorage();
+
   }
 
   saveStorage() {
